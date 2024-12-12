@@ -1,15 +1,27 @@
 #!/bin/bash
 
-# ASCII Art Banner with Colors
-echo -e "\033[1;34m  K   K  M   M  SSSS   CCCC   N   N  OOO  DDDD  EEEEE\033[0m"
-echo -e "\033[1;32m  K  K   MM MM  S      C      NN  N O   O D   D E    \033[0m"
-echo -e "\033[1;33m  KKK    M M M  SSS    C      N N N O   O D   D EEEE \033[0m"
-echo -e "\033[1;35m  K  K   M   M     S  C      N  NN O   O D   D E    \033[0m"
-echo -e "\033[1;36m  K   K  M   M  SSSS   CCCC  N   N  OOO  DDDD  EEEEE\033[0m"
-echo "                                                   "
+# Function to display the animated banner
+function animated_banner() {
+  clear
+  for i in {1..5}; do
+    clear
+    echo -e "\033[${i}m"  # Change color dynamically
+    echo -e "\033[1;34m"
+    echo -e "\n\n"
+    echo -e "       ███   ███ ████   █████  █████ ███  █████ ██████ "
+    echo -e "       █ █   █ █ █       █     █     █ █  █   █ █      "
+    echo -e "       █ ███ █ █ █████   ████  ████  █████ █████ █████  "
+    echo -e "       █ █ █ █ █     █   █     █     █  █  █   █     █  "
+    echo -e "       █ █   █ █ █████   █     █████ █  █  █   █ █████  "
+    echo -e "\033[0m"
 
-# Update and upgrade system
-sudo apt update && sudo apt upgrade -y
+    sleep 0.2  # Animation speed
+  done
+}
+
+# Display the banner with animation
+animated_banner
+
 
 # Install necessary packages
 sudo apt install -y curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip protobuf-compiler screen
